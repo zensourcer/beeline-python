@@ -1,6 +1,7 @@
 from wrapt import wrap_function_wrapper
 import beeline
 import beeline.propagation
+import http
 import urllib.request
 
 
@@ -38,7 +39,7 @@ def _urllibopen(_urlopen, instance, args, kwargs):
         })
         raise
     finally:
-        if resp:
+        if resp and isinstance(resp, http.client.HTTPResponse):
             beeline.add_context_field("response.status_code", resp.status)
             content_type = resp.getheader('content-type')
             if content_type:
