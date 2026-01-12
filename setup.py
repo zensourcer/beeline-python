@@ -16,7 +16,7 @@ package_data = \
 {'': ['*']}
 
 install_requires = \
-['libhoney>=1.7.0', 'wrapt>=1.12.1,<2.0.0']
+['libhoney>=2.4.0', 'wrapt>=1.12.1,<3']
 
 entry_points = \
 {'console_scripts': ['tests = beeline.test_suite:run_tests']}
